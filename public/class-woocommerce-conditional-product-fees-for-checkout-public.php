@@ -1565,7 +1565,7 @@ class Woocommerce_Conditional_Product_Fees_For_Checkout_Pro_Public {
 									} else {
 										$site_product_id = $product_id_lan;
 									}
-									if ( false === strpos( $_product->get_type(), 'bundle' ) ) {
+									if ( ! ( $_product->is_virtual( 'yes' ) ) && false === strpos( $_product->get_type(), 'bundle' ) ) {
 										if ( in_array( $site_product_id, $condition['product_fees_conditions_values'] ) ) {
 											$prod_qty = $value['quantity'] ? $value['quantity'] : 0;
 											$cart_final_var_products_array[] = $prod_qty . "||" . $line_item_subtotal;
